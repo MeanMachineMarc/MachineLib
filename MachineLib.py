@@ -1,3 +1,10 @@
+#Imports Machine Lib when in a different directory.
+def import_L():
+    import sys
+    sys.path.append('m:\Code\Python\Projects\MachineLib')
+    import MachineLib as L
+
+#Negative = -1, zero = 0, positive = 1
 def sign(num):
     if num > 0:
        sign = 1
@@ -7,10 +14,12 @@ def sign(num):
        sign = 0
     return sign
 
+#Converts a fraction to a decimal.
 def frac_to_dec(numerator,denominator):
     decimal = float(numerator) / float(denominator)
     return decimal
 
+#Rounds num to (figures) significant figures.
 def round_xsf(num,figures):
     
     if ',' in str(num): #Fraction
