@@ -20,7 +20,8 @@ def round_xsf(num,figures):
     else:
       pass
 
-    num=float(num)
+    num = float(num)
+    figures = int(figures)
     
     if (num) - int(num) == 0: #Integer
        if sign(num) == -1: #Negative Integer
@@ -57,3 +58,6 @@ def round_xsf(num,figures):
           rounded = round(hold1,decimalPlaces)    
 
     return rounded
+
+print(round_xsf('10,3',5))
+print(round_xsf(3333,1))
