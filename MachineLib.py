@@ -57,6 +57,3 @@ def round_xsf(num,figures):
           rounded = round(hold1,decimalPlaces)    
 
     return rounded
-
-
-    
