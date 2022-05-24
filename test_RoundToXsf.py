@@ -13,6 +13,27 @@ def test_positive_frac1():
 def test_positive_frac2():
     assert L.round_xsf('0.034/12',4) == 0.002833
 
+def test_multiplication1():
+    assert L.round_xsf('8 * 7.365',3) == 58.9
+
+def test_multiplication2():
+    assert L.round_xsf('8 * 7.329 * -9.34 * -3.21',5) == 1757.9
+
+def test_addition1():
+    assert L.round_xsf('3 + 8.3254',4) == 11.33
+
+def test_addition2():
+    assert L.round_xsf('3 + 8.3254 + 7 + 9.3',4) == 27.63
+
+def test_subtraction1():
+    assert L.round_xsf('3 - 8.3254',4) == -5.325
+
+def test_subtraction2():
+    assert L.round_xsf('3 - 8.3254 - 7 - 9.3',4) == -21.63
+
+def test_indices1():
+    assert L.round_xsf('81 ** 0.25',1) == 3
+
 def test_positive_integer1():
     assert L.round_xsf(3,1) == 3
 

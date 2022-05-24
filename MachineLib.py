@@ -20,6 +20,50 @@ def round_xsf(num,figures):
       frac_list = str(num).split('/') 
       num = frac_to_dec(frac_list[0],frac_list[1])
     
+    elif '**' in str(num): #Indices
+       Indices_list = str(num).split('**')
+       length_i = len(Indices_list)
+       total = float(Indices_list[0]) ** float(Indices_list[1])
+       count = 2
+       while count < length_i:
+          total = total ** float(Indices_list[count])
+          count = count + 1
+      
+       num = total 
+       
+    elif '*' in str(num): #Multiplication
+      multiplication_list = str(num).split('*')
+      length_m = len(multiplication_list)
+      total = float(multiplication_list[0]) * float(multiplication_list[1])
+      count = 2
+      while count < length_m:
+         total = total * float(multiplication_list[count])
+         count = count + 1
+
+      num = total
+
+    elif '+' in str(num): #Addition
+      addition_list = str(num).split('+')
+      len_a = len(addition_list)
+      total = float(addition_list[0])
+      count = 1
+      while count < len_a:
+         total = total + float(addition_list[count])
+         count = count + 1
+      
+      num = total
+   
+    elif '- ' in str(num): #Subtraction
+      subtraction_list = str(num).split('-')
+      length_s = len(subtraction_list)
+      total = float(subtraction_list[0])
+      count = 1
+      while count < length_s:
+         total = total - float(subtraction_list[count])
+         count = count + 1
+      
+      num = total
+    
     else:
       pass
 
