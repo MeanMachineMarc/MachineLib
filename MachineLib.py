@@ -1,9 +1,3 @@
-#Imports Machine Lib when in a different directory.
-def import_L():
-    import sys
-    sys.path.append('m:\Code\Python\Projects\MachineLib')
-    import MachineLib as L
-
 #Negative = -1, zero = 0, positive = 1
 def sign(num):
     if num > 0:
