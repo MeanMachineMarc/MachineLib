@@ -1,10 +1,10 @@
-import sign
+import MachineLib
 
 def test_positive():
-    assert sign.sign(3)==1
+    assert MachineLib.sign(3)==1
 
 def test_negative():
-    assert sign.sign(-3)==-1
+    assert MachineLib.sign(-3)==-1
 
 def test_zero():
-    assert sign.sign(0)==0
+    assert MachineLib.sign(0)==0

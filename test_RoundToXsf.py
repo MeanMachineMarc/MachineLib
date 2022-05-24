@@ -2,7 +2,7 @@ import pytest
 import MachineLib
 
 def test_negative_frac1():
-    assert MachineLib.round_xsf('-3254,12.2345',1) == -270
+    assert MachineLib.round_xsf('-3254,12.2345',1) == -300
 
 def test_negative_frac2():
     assert MachineLib.round_xsf('0.034,-12',2) == -0.0028
