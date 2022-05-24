@@ -2,16 +2,16 @@ import pytest
 import MachineLib as L
 
 def test_negative_frac1():
-    assert L.round_xsf('-3254,12.2345',1) == -300
+    assert L.round_xsf('-3254/12.2345',1) == -300
 
 def test_negative_frac2():
-    assert L.round_xsf('0.034,-12',2) == -0.0028
+    assert L.round_xsf('0.034/-12',2) == -0.0028
 
 def test_positive_frac1():
-    assert L.round_xsf('-3254,-12.2345',3) == 266
+    assert L.round_xsf('-3254/-12.2345',3) == 266
 
 def test_positive_frac2():
-    assert L.round_xsf('0.034,12',4) == 0.002833
+    assert L.round_xsf('0.034/12',4) == 0.002833
 
 def test_positive_integer1():
     assert L.round_xsf(3,1) == 3

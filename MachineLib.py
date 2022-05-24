@@ -16,8 +16,8 @@ def frac_to_dec(numerator,denominator):
 #Rounds num to (figures) significant figures.
 def round_xsf(num,figures):
     
-    if ',' in str(num): #Fraction
-      frac_list = str(num).split(',') 
+    if '/' in str(num): #Fraction
+      frac_list = str(num).split('/') 
       num = frac_to_dec(frac_list[0],frac_list[1])
     
     else:
