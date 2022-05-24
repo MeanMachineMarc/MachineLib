@@ -34,8 +34,8 @@ def round_xsf(num,figures):
        
     elif int(num) > 0: #Float, > 1
        len_b4_dp = len(str(int(num)))
-       len_aft_dp = len(str(num))-len_b4_dp - 1
-       decimalPlaces= figures + 1 + len_aft_dp - len(str(num))
+       len_aft_dp = len(str(num)) - len_b4_dp 
+       decimalPlaces= figures + len_aft_dp - len(str(num))
        rounded = round(num,decimalPlaces)
        
     else: #Negative Float or Float, < 1
@@ -58,6 +58,3 @@ def round_xsf(num,figures):
           rounded = round(hold1,decimalPlaces)    
 
     return rounded
-
-print(round_xsf('10,3',5))
-print(round_xsf(3333,1))
