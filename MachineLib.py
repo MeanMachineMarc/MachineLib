@@ -105,3 +105,13 @@ def round_xsf(num,figures):
           rounded = round(hold1,decimalPlaces)    
 
     return rounded
+
+def factorial(input):
+    input = int(input)
+    total = input
+    for i in range (2, input):
+        total = total * i 
+    return total
+
+def nCr(n,r):
+    return (factorial(n)) / (factorial(int(n) - int(r)) * factorial(r))
