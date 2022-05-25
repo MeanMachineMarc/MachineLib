@@ -9,16 +9,16 @@ def sign(num):
     return sign
 
 #Converts a fraction to a decimal.
-def frac_to_dec(numerator,denominator):
+def frac_to_dec(numerator, denominator):
     decimal = float(numerator) / float(denominator)
     return decimal
 
 #Rounds num to (figures) significant figures.
-def round_xsf(num,figures):
+def round_xsf(num, figures):
     
     if '/' in str(num): #Fraction
       frac_list = str(num).split('/') 
-      num = frac_to_dec(frac_list[0],frac_list[1])
+      num = frac_to_dec(frac_list[0], frac_list[1])
     
     elif '**' in str(num): #Indices
        Indices_list = str(num).split('**')
@@ -77,13 +77,13 @@ def round_xsf(num,figures):
        else: #Zero or Positive Integer
           decimalPlaces = figures - len(str(int(num)))
           
-       rounded = round(num,decimalPlaces)
+       rounded = round(num, decimalPlaces)
        
     elif int(num) > 0: #Float, > 1
        len_b4_dp = len(str(int(num)))
        len_aft_dp = len(str(num)) - len_b4_dp 
        decimalPlaces= figures + len_aft_dp - len(str(num))
-       rounded = round(num,decimalPlaces)
+       rounded = round(num, decimalPlaces)
        
     else: #Negative Float or Float, < 1
        hold1 = num 
@@ -98,11 +98,11 @@ def round_xsf(num,figures):
           len_b4_dp = len(str(int(num)))
           len_aft_dp = len(str(num)) - len_b4_dp - 1
           decimalPlaces = figures + 1 + len_aft_dp - len(str(num))
-          rounded = round(hold1,decimalPlaces)
+          rounded = round(hold1, decimalPlaces)
      
        else: #Float, abs < 1
           decimalPlaces = figures - 1 + count 
-          rounded = round(hold1,decimalPlaces)    
+          rounded = round(hold1, decimalPlaces)    
 
     return rounded
 
@@ -113,7 +113,7 @@ def factorial(input):
         total = total * i 
     return total
 
-def nCr(n,r):
+def nCr(n, r):
     return (factorial(n)) / (factorial(int(n) - int(r)) * factorial(r))
 
 #Let X be the discrete random variable 'number of times event occurs.'
@@ -132,7 +132,7 @@ def bin_P(tail, r, n, p):
 
     elif tail == 'M': #P(X = r)
        if r > 0: #P(X = r), r > 0
-          return round_xsf((nCr(n,r) * (p ** r) * (1 - p) ** (n - r)), 4)
+          return round_xsf((nCr(n, r) * (p ** r) * (1 - p) ** (n - r)), 4)
        
        else: #P(X = 0)
           return round_xsf(((1 - p) ** n), 4)
