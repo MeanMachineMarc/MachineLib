@@ -144,7 +144,7 @@ def bin_P(tail, r, n, p):
        else: #P(X >= 0)
           return 1
 
-#Searches for a keyword in a list of strings, and provides indices for each string the keyword is in.
+#Searches for a keyword in a list of strings, and returns a list of indices referring to the strings the keyword is in.
 def word_search(list_strings, keyword, exceptions):
     indices = []
     for i, string in enumerate(list_strings):
