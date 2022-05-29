@@ -143,3 +143,22 @@ def bin_P(tail, r, n, p):
        
        else: #P(X >= 0)
           return 1
+
+#Searches for a keyword in a list of strings, and provides indices for each string the keyword is in.
+def word_search(list_strings, keyword, exceptions):
+    indices = []
+    for i, string in enumerate(list_strings):
+        words = string.split()
+        testing_words = [word.rstrip(''.join(exceptions)).lower() for word in words]
+        if keyword.lower() in testing_words:
+           indices.append(i)
+    
+    return indices
+
+#Searches for multiple keywords in a list of strings, and creates a dictionary of keywords to indices.
+def multi_word_search(list_strings, keywords, exceptions):
+    keyword_to_indices = {}
+    for keyword in keywords:
+        keyword_to_indices[keyword] = word_search(list_strings, keyword, exceptions)
+
+    return keyword_to_indices
