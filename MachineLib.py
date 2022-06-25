@@ -162,3 +162,8 @@ def multi_word_search(list_strings, keywords, exceptions):
         keyword_to_indices[keyword] = word_search(list_strings, keyword, exceptions)
 
     return keyword_to_indices
+
+#Counts the number of words in a string.
+def word_count(text):
+    text_list = str(text).split(' ')
+    return len(text_list)
