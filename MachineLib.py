@@ -2,10 +2,13 @@
 def sign(num):
     if num > 0:
        sign = 1
+    
     elif num < 0:
        sign = -1
+    
     else:
        sign = 0
+
     return sign
 
 #Converts a fraction to a decimal.
@@ -111,6 +114,7 @@ def factorial(input):
     total = input
     for i in range (2, input):
         total = total * i 
+      
     return total
 
 def nCr(n, r):
