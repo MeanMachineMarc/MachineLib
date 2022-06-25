@@ -178,3 +178,11 @@ def word_count(text):
           pass
 
     return len(text_list)
+
+#Calculates the average word length in a string.
+def avg_word_length(text1):
+    word_count0 = word_count(text1)
+    stripped = text1.strip(",.!@#$%^&*()_-+=\"|}{][?></\\:;~'")
+    stripped = stripped.replace(" ", "")
+    length_string = len(stripped)
+    return length_string / word_count0
