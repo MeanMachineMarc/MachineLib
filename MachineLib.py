@@ -166,4 +166,11 @@ def multi_word_search(list_strings, keywords, exceptions):
 #Counts the number of words in a string.
 def word_count(text):
     text_list = str(text).split(' ')
+    for i in range(len(text_list) + 1):
+        try:
+          text_list.remove('')
+        
+        except Exception:
+          pass
+
     return len(text_list)
