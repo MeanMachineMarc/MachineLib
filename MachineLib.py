@@ -199,7 +199,7 @@ def mode(nums):
     num_to_count_items = num_to_count.items()
     critical_value = max(num_to_count.values())
     mode = [key for key, value in num_to_count_items if value == critical_value]
-    if (len(mode)) < 2:
+    if (len(mode)) == 1:
        mode = mode[0]
 
     return mode  
