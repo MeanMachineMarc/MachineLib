@@ -199,6 +199,8 @@ def mode(nums):
     num_to_count_items = num_to_count.items()
     critical_value = max(num_to_count.values())
     mode = [key for key, value in num_to_count_items if value == critical_value]
+    if (len(mode)) < 2:
+       mode = mode[0]
 
     return mode  
 
@@ -227,7 +229,7 @@ def avg_word_length(text, average):
        text = text.replace(" ", "")
        average = (len(text)) / (count) 
     
-    elif average == 'median':
+    elif average == 'median': #Returns the middle value of all the lengths of words in the string.
        text = text.split(' ')
        for i in range(len(text) + 1): 
            try:
@@ -239,7 +241,16 @@ def avg_word_length(text, average):
        length_list = [len(word) for word in text]
        average = median(length_list)
     
-    else:
+    else: #Returns the most common length(s) of words in the text.
+       text = text.split(' ')
+       for i in range(len(text) + 1): 
+           try:
+             text.remove('')
+        
+           except Exception:
+             pass
+       
        length_list = [len(word) for word in text]
-    
+       average = mode(length_list)
+
     return average
