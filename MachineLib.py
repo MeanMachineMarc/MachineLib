@@ -186,6 +186,22 @@ def median(list):
     else: #Critical = x.5
       return (((list[int(critical - 0.5)]) + (list[int(critical + 0.5)])) / (2))
 
+#Calculates the mode of a list of numbers.
+def mode(nums):
+    num_to_count = {}
+    for num in nums:
+        if num in num_to_count:
+           num_to_count[num] = (num_to_count[num] + 1)
+           
+        else: 
+           num_to_count[num] = 1
+    
+    num_to_count_items = num_to_count.items()
+    critical_value = max(num_to_count.values())
+    mode = [key for key, value in num_to_count_items if value == critical_value]
+
+    return mode  
+
 #Counts the number of words in a string.
 def word_count(text):
     for spec in specs: #Deletes every special character in the string.
