@@ -1,6 +1,9 @@
-#Negative = -1, zero = 0, positive = 1
 from random import randint
 
+#List of special characters:
+spec = [',', '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[',']', '{', '}', '\\', '|', '\'', '"', ';', ':', '/', '?', '<', '>', '~', '`']
+
+#Negative = -1, zero = 0, positive = 1
 def sign(num):
     if num > 0:
        sign = 1
@@ -168,9 +171,6 @@ def multi_word_search(list_strings, keywords, exceptions):
         keyword_to_indices[keyword] = word_search(list_strings, keyword, exceptions)
 
     return keyword_to_indices
-
-#List of special characters:
-spec = [',', '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[',']', '{', '}', '\\', '|', '\'', '"', ';', ':', '/', '?', '<', '>', '~', '`']
 
 #Counts the number of words in a string.
 def word_count(text):
