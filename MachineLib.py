@@ -1,4 +1,6 @@
 #Negative = -1, zero = 0, positive = 1
+from random import randint
+
 def sign(num):
     if num > 0:
        sign = 1
@@ -167,8 +169,14 @@ def multi_word_search(list_strings, keywords, exceptions):
 
     return keyword_to_indices
 
+#List of special characters:
+spec = [',', '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[',']', '{', '}', '\\', '|', '\'', '"', ';', ':', '/', '?', '<', '>', '~', '`']
+
 #Counts the number of words in a string.
 def word_count(text):
+    for i in range (len(spec)):
+        text = text.replace((spec[i]), "")
+   
     text_list = str(text).split(' ')
     for i in range(len(text_list) + 1):
         try:
@@ -182,7 +190,9 @@ def word_count(text):
 #Calculates the average word length in a string.
 def avg_word_length(text1):
     word_count0 = word_count(text1)
-    stripped = text1.strip(",.!@#$%^&*()_-+=\"|}{][?></\\:;~'")
-    stripped = stripped.replace(" ", "")
+    for i in range (len(spec)):
+        text1 = text1.replace((spec[i]), "")
+
+    stripped = text1.replace(" ", "")
     length_string = len(stripped)
     return length_string / word_count0
