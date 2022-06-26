@@ -189,10 +189,8 @@ def word_count(text):
 
 #Calculates the average word length in a string.
 def avg_word_length(text1):
-    word_count0 = word_count(text1)
     for i in range (len(spec)):
         text1 = text1.replace((spec[i]), "")
 
     stripped = text1.replace(" ", "")
-    length_string = len(stripped)
-    return length_string / word_count0
+    return (len(stripped)) / (word_count(text1))
