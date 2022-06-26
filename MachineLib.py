@@ -174,11 +174,11 @@ def multi_word_search(list_strings, keywords, exceptions):
 
 #Counts the number of words in a string.
 def word_count(text):
-    for spec in specs:
+    for spec in specs: #Deletes every special character in the string.
         text = text.replace(spec, "")
    
-    text_list = str(text).split(' ')
-    for i in range(len(text_list) + 1):
+    text_list = str(text).split(' ') 
+    for i in range(len(text_list) + 1): 
         try:
           text_list.remove('')
         
@@ -189,8 +189,7 @@ def word_count(text):
 
 #Calculates the average word length in a string.
 def avg_word_length(text1):
-    for spec in specs:
+    for spec in specs: #Deletes every special character in the string.
         text1 = text1.replace(spec, "")
 
-    stripped = text1.replace(" ", "")
-    return (len(stripped)) / (word_count(text1))
+    return (len(text1.replace(" ", ""))) / (word_count(text1)) #Returns the length of the string (without special characters or spaces) divided by the number of words in the string.
