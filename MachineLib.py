@@ -172,7 +172,11 @@ def multi_word_search(list_strings, keywords, exceptions):
 
     return keyword_to_indices
 
-#Calculates the median from a list of numbers.
+#Calculates the mean of a list of numbers.
+def mean(list):
+    return ((sum(list)) / (len(list)))
+
+#Calculates the median of a list of numbers.
 def median(list):
     list.sort()
     critical = (((len(list) + 1) / (2)) - 1) #criticalth value
@@ -198,28 +202,28 @@ def word_count(text):
     return len(text_list)
 
 #Calculates the average (mean, median, or mode) word length in a string.
-def avg_word_length(text1, average):
+def avg_word_length(text, average):
     for spec in specs: #Deletes every special character in the string.
-        text1 = text1.replace(spec, "")
+        text = text.replace(spec, "")
     
     if average == 'mean': #Returns the length of the string (without special characters or spaces) divided by the number of words in the string.
-       count = word_count(text1)
-       text1 = text1.replace(" ", "")
-       average = (len(text1)) / (count) 
+       count = word_count(text)
+       text = text.replace(" ", "")
+       average = (len(text)) / (count) 
     
     elif average == 'median':
-       text1 = text1.split(' ')
-       for i in range(len(text1) + 1): 
+       text = text.split(' ')
+       for i in range(len(text) + 1): 
            try:
-             text1.remove('')
+             text.remove('')
         
            except Exception:
              pass
 
-       length_list = [len(word) for word in text1]
+       length_list = [len(word) for word in text]
        average = median(length_list)
     
     else:
-       length_list = [len(word) for word in text1]
+       length_list = [len(word) for word in text]
     
     return average
