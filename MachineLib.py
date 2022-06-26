@@ -126,7 +126,7 @@ def nCr(n, r):
     return (factorial(n)) / (factorial(int(n) - int(r)) * factorial(r))
 
 #Let X be the discrete random variable 'number of times event occurs.'
-# X ~ B(n, p), where n is the number of trials, and p is the probability of an event occuring during a trial.
+#X ~ B(n, p), where n is the number of trials, and p is the probability of an event occuring during a trial.
 def bin_P(tail, r, n, p):
     r = int(r)
     n = int(n)
@@ -172,6 +172,16 @@ def multi_word_search(list_strings, keywords, exceptions):
 
     return keyword_to_indices
 
+#Calculates the median from a list of numbers.
+def median(list):
+    list.sort()
+    critical = (((len(list) + 1) / (2)) - 1) #criticalth value
+    if critical - int(critical) == 0: #Critical = Integer
+       return list[int(critical)]
+
+    else: #Critical = x.5
+      return (((list[int(critical - 0.5)]) + (list[int(critical + 0.5)])) / (2))
+
 #Counts the number of words in a string.
 def word_count(text):
     for spec in specs: #Deletes every special character in the string.
@@ -187,9 +197,29 @@ def word_count(text):
 
     return len(text_list)
 
-#Calculates the average word length in a string.
-def avg_word_length(text1):
+#Calculates the average (mean, median, or mode) word length in a string.
+def avg_word_length(text1, average):
     for spec in specs: #Deletes every special character in the string.
         text1 = text1.replace(spec, "")
+    
+    if average == 'mean': #Returns the length of the string (without special characters or spaces) divided by the number of words in the string.
+       count = word_count(text1)
+       text1 = text1.replace(" ", "")
+       average = (len(text1)) / (count) 
+    
+    elif average == 'median':
+       text1 = text1.split(' ')
+       for i in range(len(text1) + 1): 
+           try:
+             text1.remove('')
+        
+           except Exception:
+             pass
 
-    return (len(text1.replace(" ", ""))) / (word_count(text1)) #Returns the length of the string (without special characters or spaces) divided by the number of words in the string.
+       length_list = [len(word) for word in text1]
+       average = median(length_list)
+    
+    else:
+       length_list = [len(word) for word in text1]
+    
+    return average
