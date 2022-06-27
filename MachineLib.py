@@ -255,8 +255,9 @@ def avg_word_length(text, average):
 
     return average
 
-def num_xProportion_x_in_df(df_loc, x, numProportion):
+def num_xProportion_x_in_df(df_loc, x, numProportion): #Calculates the number of x or proportion of x in a data frame.
     df = pd.read_csv(df_loc, index_col = 0)
+   
     num_x = {}
     for x in df[x]:
         if x not in num_x:
