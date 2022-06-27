@@ -1,3 +1,5 @@
+import pandas as pd
+
 #List of special characters:
 specs = [',', '.', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[',']', '{', '}', '\\', '|', '\'', '"', ';', ':', '/', '?', '<', '>', '~', '`']
 
@@ -252,3 +254,22 @@ def avg_word_length(text, average):
        average = mode(length_list)
 
     return average
+
+def num_xProportion_x_in_df(df_loc, x, numProportion):
+    df = pd.read_csv(df_loc, index_col = 0)
+    num_x = {}
+    for x in df[x]:
+        if x not in num_x:
+           num_x[x] = 1
+     
+        else:
+           num_x[x] = (num_x[x] + 1)
+   
+    if numProportion == 'num':
+       return(num_x)
+    
+    proportion_x = {}
+    for x in num_x:
+        proportion_x[x] = ((num_x[x]) / (len(df.index)))
+
+    return (proportion_x)
