@@ -132,14 +132,14 @@ def bin_P(tail, r, n, p, x):
     n = int(n)
     p = float(p)
 
-    if tail == 'L': #P(X <= r)
+    if tail.upper() == 'L': #P(X <= r)
        total_probability = (1 - p) ** n 
        for r in range (1, (r + 1)): #Sum of probabilities up to and including r
            total_probability = total_probability + (nCr(n, r) * (p ** r) * (1 - p) ** (n - r))
         
        return round_xsf(total_probability, (x))
 
-    elif tail == 'M': #P(X = r)
+    elif tail.upper() == 'M': #P(X = r)
        if r > 0: #P(X = r), r > 0
           return round_xsf((nCr(n, r) * (p ** r) * (1 - p) ** (n - r)), (x))
        
