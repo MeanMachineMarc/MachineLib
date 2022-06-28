@@ -148,7 +148,7 @@ def bin_P(tail, r, n, p, xsf):
 
     else: #P(X >= r)
        if r > 0: #P(X >= r), r > 0
-          return round_xsf((1 - bin_P('L', (r - 1), n, p)), (xsf))
+          return round_xsf((1 - bin_P('L', (r - 1), n, p, xsf)), (xsf))
        
        else: #P(X >= 0)
           return 1
