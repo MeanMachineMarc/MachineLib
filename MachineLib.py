@@ -127,7 +127,7 @@ def nCr(n, r):
 
 #Let X be the discrete random variable 'number of times event occurs.'
 #X ~ B(n, p), where n is the number of trials, and p is the probability of an event occuring during a trial.
-def bin_P(tail, r, n, p, x):
+def bin_P(tail, r, n, p, xsf):
     r = int(r)
     n = int(n)
     p = float(p)
@@ -137,18 +137,18 @@ def bin_P(tail, r, n, p, x):
        for r in range (1, (r + 1)): #Sum of probabilities up to and including r
            total_probability = total_probability + (nCr(n, r) * (p ** r) * (1 - p) ** (n - r))
         
-       return round_xsf(total_probability, (x))
+       return round_xsf(total_probability, (xsf))
 
     elif tail.upper() == 'M': #P(X = r)
        if r > 0: #P(X = r), r > 0
-          return round_xsf((nCr(n, r) * (p ** r) * (1 - p) ** (n - r)), (x))
+          return round_xsf((nCr(n, r) * (p ** r) * (1 - p) ** (n - r)), (xsf))
        
        else: #P(X = 0)
-          return round_xsf(((1 - p) ** n), (x))
+          return round_xsf(((1 - p) ** n), (xsf))
 
     else: #P(X >= r)
        if r > 0: #P(X >= r), r > 0
-          return round_xsf((1 - bin_P('L', (r - 1), n, p)), (x))
+          return round_xsf((1 - bin_P('L', (r - 1), n, p)), (xsf))
        
        else: #P(X >= 0)
           return 1
