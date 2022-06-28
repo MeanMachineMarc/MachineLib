@@ -258,30 +258,27 @@ def avg_word_length(text, average):
 def num_columnProportion_column_in_df(df_loc, column, numProportion): #Calculates the number of x or proportion of x in a data frame.
     df = pd.read_csv(df_loc, index_col = 0)
    
-    num_column = {}
-    num_column['nan'] = 0
-    for var in df[column]:
+    num_column = {} #Values of column to value of apperances.
+    num_column['nan'] = 0 
+    for var in df[column]: #Runs through all the values in the column.
         
         var = str(var)
-        if ((var) in num_column) and (var != 'nan'):
+        if ((var) in num_column) and (var != 'nan'): #Value is not in list and is of value.
            num_column[var] = (num_column[var] + 1)
         
-        elif (var != 'nan'):
+        elif (var != 'nan'): #Value is in list and is of value.
            num_column[var] = 1
            
         else:
-           num_column['nan'] = (num_column['nan'] + 1)
+           num_column['nan'] = (num_column['nan'] + 1) #Value is not of value.
    
-    if numProportion == 'num':
+    if numProportion == 'num': #Selection 
        return(num_column)
     
-    num_x_values = [num_column[key] for key in num_column]
-    length_x = sum(num_x_values)
+    num_column_values = [num_column[key] for key in num_column] #List of values corresponding to the keys of num_column.
+    length_x = sum(num_column_values) #Amount of values in the column.
     proportion_column = {}
     for var in num_column:
-        proportion_column[var] = ((num_column[var]) / (length_x))
+        proportion_column[var] = ((num_column[var]) / (length_x)) #Runs through num_column and divides all of its values by the amount of values in the column.
     
     return (proportion_column)
-
-print(num_columnProportion_column_in_df('M:/Code/CSV/wine_reviews_150k.csv', 'price', 'proportion'))
-print(num_columnProportion_column_in_df('M:/Code/CSV/wine_reviews_150k.csv', 'country', 'proportion'))
